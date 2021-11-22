@@ -1,0 +1,14 @@
+.score{
+    display: block;
+    margin-top: 40px;
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: var(--font_2);
+    color: var(--main-color);
+    font-size: 30px;
+    transform: translateX(-1000%);
+    opacity: 0;
+    transition: 0.3s;
+    transition-timing-function: ease-in-out;
+}
