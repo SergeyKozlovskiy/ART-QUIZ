@@ -6,6 +6,10 @@ import show from './function/show';
 import hide from './function/clearRoot';
 import createLocalStorage from './function/createLocalStorage';
 import artistQuiz from './pages/artistQuiz-page/artistQuiz';
+import showScoreToConsole from './function/showScoreToConsole';
+import setTimeoutRenderPg from './function/setTimeoutRenderPg';
+setTimeoutRenderPg;
+// showScoreToConsole();
 
 document.addEventListener('DOMContentLoaded', () => {
   'use strict';
@@ -23,9 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let target = event.target;
     if (target.classList.contains('settings')) {
       hide('show');
-      setTimeout(() => {
-        renderPG(settingPg);
-      }, 400);
+      setTimeoutRenderPg(settingPg);
       currentPage = 'settingPg';
     } else if (
       (target.classList.contains('logo') ||
@@ -33,35 +35,25 @@ document.addEventListener('DOMContentLoaded', () => {
       currentPage !== 'mainPg'
     ) {
       hide('show');
-      setTimeout(() => {
-        renderPG(mainPg);
-      }, 400);
+      setTimeoutRenderPg(mainPg);
       currentPage = 'mainPg';
     } else if (target.classList.contains('PICTURES_QUIZ')) {
       hide('show');
-      setTimeout(() => {
-        renderPG(rounds, 'dataGamePictureQuiz');
-      }, 400);
+      setTimeoutRenderPg(rounds, 'dataGamePictureQuiz');
       currentPage = 'roundsPg';
     } else if (target.classList.contains('ARTISTS_QUIZ')) {
       hide('show');
-      setTimeout(() => {
-        renderPG(rounds, 'dataGameArtistQuiz');
-      }, 400);
+      setTimeoutRenderPg(rounds, 'dataGameArtistQuiz');
       currentPage = 'roundsPg';
     } else if (target.parentNode.classList.contains('PictureQuiz')) {
       let numRound = target.parentNode.getAttribute('num');
       hide('show');
-      setTimeout(() => {
-        renderPG(pictureQuiz, numRound);
-      }, 400);
+      setTimeoutRenderPg(pictureQuiz, numRound);
       currentPage = 'picturesPg';
     } else if (target.parentNode.classList.contains('ArtistQuiz')) {
       let numRound = target.parentNode.getAttribute('num');
       hide('show');
-      setTimeout(() => {
-        renderPG(artistQuiz, numRound);
-      }, 400);
+      setTimeoutRenderPg(artistQuiz, numRound);
       currentPage = 'artistsPg';
     }
   });
