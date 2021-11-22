@@ -1,0 +1,19 @@
+.rounds-block{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(169px, 1fr));
+}
+@media(max-width: 1200px)  {
+    .rounds-block{
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)) !important;
+    }
+}
+@media(max-width: 768px)  {
+    .rounds-block{
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)) !important;
+    }
+  }
+  @media(max-width: 576px)  {
+    .rounds-block{
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)) !important;
+    }
+  }

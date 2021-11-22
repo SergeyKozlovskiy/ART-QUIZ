@@ -1,0 +1,15 @@
+.subtitle{
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: var(--font_2);
+    font-size: 25px;
+    font-weight: 300;
+    color: var(--main-color);
+    transition: 0.4s;
+    transform: translateX(-1000%);
+    opacity: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
