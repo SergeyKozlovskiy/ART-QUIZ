@@ -9,13 +9,16 @@ import render from '../../function/render';
 import artistQuizImg from '../../components/answer-artistQuiz/artistQuiz-img';
 import paintControlPoint from '../../function/paintControlPoint';
 import renderPG from '../../function/renderPG';
-import resultPg from '../result-page/resultPg';
+import resultPg from '../result-page/result-page';
 import setLocalStorage from '../../function/setLocalStorage';
 import clearRoot from '../../function/clearRoot';
 import initTimer from '../../function/initTimer';
 import getLocalStorage from '../../function/getLocalStorage';
 import setScoreLastGame from '../../function/setScoreLastGame';
 import modal from '../../components/modal/modal';
+import mainPg from '../../pages/main-page/main-page';
+import setTimeoutRenderPg from '../../function/setTimeoutRenderPg';
+import sounds from '../../function/sounds';
 
 let flagArtistQuizPage = false;
 let numQuestions = 0;
@@ -86,12 +89,14 @@ document.addEventListener('click', (event) => {
     target.textContent === rightAnswer
   ) {
     if (numQuestions !== 9) {
+      sounds().right.play();
       setLocalStorage('dataGameArtistQuiz', numberRound, true, 1);
       paintControlPoint('right-answer', numQuestions);
       numQuestions++;
       resultAnswer += 1;
       upDateQustions();
     } else {
+      sounds().result.play();
       showModal();
     }
   } else if (
@@ -100,11 +105,13 @@ document.addEventListener('click', (event) => {
     target.textContent !== rightAnswer
   ) {
     if (numQuestions !== 9) {
+      sounds().wrong.play();
       setLocalStorage('dataGameArtistQuiz', numberRound, false, 0);
       paintControlPoint('wrong-answer', numQuestions);
       numQuestions++;
       upDateQustions();
     } else {
+      sounds().result.play();
       showModal();
     }
   }
@@ -139,3 +146,17 @@ export function showResultArtistQuiz() {
     'dataGameArtistQuiz'
   );
 }
+
+document.addEventListener('click', (event) => {
+  let target = event.target;
+  if (
+    target.classList.contains('question-header_logo') &&
+    flagArtistQuizPage === true
+  ) {
+    resultAnswer = 0;
+    numQuestions = 0;
+    flagArtistQuizPage = false;
+    clearRoot('show');
+    setTimeoutRenderPg(mainPg);
+  }
+});

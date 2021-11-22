@@ -4,7 +4,7 @@ import score from '../../components/score/score';
 import subtitle from '../../components/subtitle/subtitle';
 import getLocalStorage from '../../function/getLocalStorage';
 import render from '../../function/render';
-import './resultPg.css';
+import './result-page.css';
 
 let generateResultCard = (
   arrRoundData,

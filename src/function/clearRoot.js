@@ -1,4 +1,4 @@
-export default function clearRoot(animationClass) {
+export default (animationClass) => {
   const animateElem = document.querySelectorAll('.animateElem');
   animateElem.forEach((el) => {
     el.classList.remove(`${animationClass}`);
@@ -7,4 +7,4 @@ export default function clearRoot(animationClass) {
   setTimeout(() => {
     root.innerHTML = '';
   }, 300);
-}
+};

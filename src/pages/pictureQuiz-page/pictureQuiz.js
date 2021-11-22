@@ -12,12 +12,14 @@ import paintControlPoint from '../../function/paintControlPoint';
 import setLocalStorage from '../../function/setLocalStorage';
 import clearRoot from '../../function/clearRoot';
 import renderPG from '../../function/renderPG';
-import resultPg from '../result-page/resultPg';
+import resultPg from '../result-page/result-page';
 import initTimer from '../../function/initTimer';
 import getLocalStorage from '../../function/getLocalStorage';
 import sounds from '../../function/sounds';
 import setScoreLastGame from '../../function/setScoreLastGame';
 import modal from '../../components/modal/modal';
+import mainPg from '../../pages/main-page/main-page';
+import setTimeoutRenderPg from '../../function/setTimeoutRenderPg';
 
 let flagPictureQuizPage = false;
 let numFirstQuestions;
@@ -46,6 +48,7 @@ export default function pictureOuiz(numRound) {
   arrDataRound = getArrDataRound(numFirstQuestions, arrData);
   arrAnswer = createArrAnswer(arrDataRound[numQuestions], arrData);
   rightAnswer = arrDataRound[numQuestions].name;
+
   question('Какую из картин написал', arrDataRound[numQuestions].author);
   answerTextBtn = arrAnswer.map((elem) => {
     return elem.name;
@@ -65,7 +68,6 @@ const upDateQustions = () => {
   const pictures = document.querySelectorAll(`.pictures-block>img`);
   const answers = document.querySelectorAll('.answer');
   const author = document.getElementById('author');
-
   arrAnswer = createArrAnswer(arrDataRound[numQuestions], arrData);
   rightAnswer = arrDataRound[numQuestions].name;
   author.textContent = `${arrDataRound[numQuestions].author}`;
@@ -98,7 +100,6 @@ document.addEventListener('click', (event) => {
     } else {
       sounds().result.play();
       showModal();
-      // showResultPictureQuiz();
     }
   } else if (
     target.classList.contains('answer') &&
@@ -114,7 +115,6 @@ document.addEventListener('click', (event) => {
     } else {
       sounds().result.play();
       showModal();
-      // showResultPictureQuiz();
     }
   }
 });
@@ -126,7 +126,6 @@ const showModal = () => {
     modal.classList.add('show-modal');
   }, 300);
   let btn = document.querySelector('.modal-btn');
-
   btn.addEventListener('click', () => {
     showResultPictureQuiz();
   });
@@ -148,3 +147,16 @@ export function showResultPictureQuiz() {
     'dataGamePictureQuiz'
   );
 }
+document.addEventListener('click', (event) => {
+  let target = event.target;
+  if (
+    target.classList.contains('question-header_logo') &&
+    flagPictureQuizPage === true
+  ) {
+    resultAnswer = 0;
+    numQuestions = 0;
+    flagPictureQuizPage = false;
+    clearRoot('show');
+    setTimeoutRenderPg(mainPg);
+  }
+});

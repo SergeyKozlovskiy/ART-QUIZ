@@ -8,8 +8,6 @@ import createLocalStorage from './function/createLocalStorage';
 import artistQuiz from './pages/artistQuiz-page/artistQuiz';
 import showScoreToConsole from './function/showScoreToConsole';
 import setTimeoutRenderPg from './function/setTimeoutRenderPg';
-setTimeoutRenderPg;
-// showScoreToConsole();
 
 document.addEventListener('DOMContentLoaded', () => {
   'use strict';
