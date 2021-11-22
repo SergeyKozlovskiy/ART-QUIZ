@@ -1,0 +1,26 @@
+{
+  "version": "0.1.0",
+  "description": "My new js application",
+  "private": true,
+  "name": "my-app",
+  "scripts": {
+    "start": "rss-scripts start",
+    "build": "rss-scripts build",
+    "lint": "eslint --debug src/",
+    "lint:write": "eslint --debug src/ --fix",
+    "prettier": "prettier --write src/**/*.js"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.0",
+    "css-loader": "^6.5.1",
+    "eslint": "^8.2.0",
+    "eslint-config-node": "^4.1.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.4.1",
+    "rss-scripts": "^0.2.4",
+    "style-loader": "^3.3.1"
+  }
+}
