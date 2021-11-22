@@ -1,0 +1,26 @@
+.pictures-block {
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    
+}
+.pictures-block img {
+    width: 49%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 3px;
+    transition: 0.3s;
+    opacity: 0;
+}
+
+@media(max-width: 576px)  {
+    .pictures-block img {
+        width: 45%;
+        height: 200px;
+        justify-content: center;
+        
+    }
+}
