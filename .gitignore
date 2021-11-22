@@ -2,12 +2,12 @@
 node_modules/
 
 # Ignore the src directory
-src/
+/src
 
 # Ignore IDE specific files
-.eslintrc.json/
-.prettierrc.json/
-jsconfig.json/
-package-lock.json/
-package.json/
-webpack.config.js/
+.eslintrc.json
+.prettierrc.json
+jsconfig.json
+package-lock.json
+package.json
+webpack.config.js
